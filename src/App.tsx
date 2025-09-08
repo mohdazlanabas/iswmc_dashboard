@@ -41,7 +41,7 @@ export default function App() {
   const currentYear = currentDate.getFullYear().toString();
 
   return (
-    <div className="min-h-screen bg-green-25 bg-gradient-to-br from-green-50 to-white">
+    <div className="h-[95vh] bg-green-25 bg-gradient-to-br from-green-50 to-white">
       <DashboardHeader />
       
       <div className="p-2">
