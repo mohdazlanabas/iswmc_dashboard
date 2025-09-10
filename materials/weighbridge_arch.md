@@ -43,10 +43,10 @@ flowchart TD
 ## Option B: Cloud Mirror Path
 ```mermaid
 flowchart TD
-  B1[Weighbridge System] --> B2[Windows Server]
-  B2 --> B3[Cloud Mirror (Sync/ETL)]
-  B3 --> B4[Web Access (Portal/API)]
-  B4 --> B5[User]
+  A1[Weighbridge System] --> A2[Windows Server]
+  A2 --> A3[API Service]
+  A3 --> A4[Dashboard Web App]
+  A4 --> A5[User]
 ```
 
 ### Key Points
