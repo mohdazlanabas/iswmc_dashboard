@@ -28,7 +28,7 @@ flowchart LR
 flowchart TD
   A1[Weighbridge System] --> A2[Windows Server]
   A2 --> A3[API Service]
-  A3 --> A4[Dashboard (Web/App)]
+  A3 --> A4[Dashboard Web App]
   A4 --> A5[User]
 ```
 
