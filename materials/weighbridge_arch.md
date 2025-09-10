@@ -5,6 +5,7 @@ Below is a single diagram that **draws both architectures side‑by‑side** usi
 ```mermaid
 flowchart LR
   %% Combined view: A and B side-by-side
+
   subgraph A["A) Direct API Path"]
     A1[Weighbridge System] --> A2[Windows Server]
     A2 --> A3[API Service]
