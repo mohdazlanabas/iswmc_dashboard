@@ -9,14 +9,14 @@ flowchart LR
   subgraph A["A) Direct API Path"]
     A1[Weighbridge System] --> A2[Windows Server]
     A2 --> A3[API Service]
-    A3 --> A4[Dashboard (Web/App)]
+    A3 --> A4[Dashboard Web App]
     A4 --> A5[User]
   end
 
   subgraph B["B) Cloud Mirror Path"]
     B1[Weighbridge System] --> B2[Windows Server]
-    B2 --> B3[Cloud Mirror (Sync/ETL)]
-    B3 --> B4[Web Access (Portal/API)]
+    B2 --> B3[Cloud Mirror Sync ETL]
+    B3 --> B4[Web Access Portal API]
     B4 --> B5[User]
   end
 ```
