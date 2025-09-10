@@ -44,8 +44,8 @@ flowchart TD
 ```mermaid
 flowchart TD
   B1[Weighbridge System] --> B2[Windows Server]
-  B2 --> B3[Cloud Mirror (Sync/ETL)]
-  B3 --> B4[Web Access (Portal/API)]
+  B2 --> B3[Cloud Mirror Sync ETL]
+  B3 --> B4[Web Access Portal API]
   B4 --> B5[User]
 ```
 
