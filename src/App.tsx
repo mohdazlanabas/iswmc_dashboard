@@ -21,16 +21,16 @@ export default function App() {
   const [yearlyData, setYearlyData] = useState(null as StatsResponse | null);
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/stats/daily")
+    fetch("https://iswmc-backend-532680260027.asia-southeast2.run.app/api/stats/daily")
       .then(res => res.json())
       .then(setDailyData);
-    fetch("http://localhost:4000/api/stats/weekly")
+    fetch("https://iswmc-backend-532680260027.asia-southeast2.run.app/api/stats/weekly")
       .then(res => res.json())
       .then(setWeeklyData);
-    fetch("http://localhost:4000/api/stats/monthly")
+    fetch("https://iswmc-backend-532680260027.asia-southeast2.run.app/api/stats/monthly")
       .then(res => res.json())
       .then(setMonthlyData);
-    fetch("http://localhost:4000/api/stats/yearly")
+    fetch("https://iswmc-backend-532680260027.asia-southeast2.run.app/api/stats/yearly")
       .then(res => res.json())
       .then(setYearlyData);
   }, []);
