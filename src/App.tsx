@@ -19,7 +19,7 @@ export default function App() {
   const [weeklyData, setWeeklyData] = useState(null as StatsResponse | null);
   const [monthlyData, setMonthlyData] = useState(null as StatsResponse | null);
   const [yearlyData, setYearlyData] = useState(null as StatsResponse | null);
-  const [location, setLocation] = useState<string | null>(null);
+  const [location, setLocation] = useState(null as string | null);
 
   useEffect(() => {
     // Fetch location data
@@ -101,8 +101,8 @@ export default function App() {
   return (
     <div className="h-[95vh] bg-green-25 bg-gradient-to-br from-green-50 to-white">
       <DashboardHeader />
-      <div className="p-2">
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-2 mt-2">
+      <div className="p-1">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-1 mt-1">
           {/* Daily Stats */}
           <LorryStatsCard
             title="Daily Operations"
@@ -137,7 +137,7 @@ export default function App() {
           />
         </div>
         {/* Footer */}
-        <div className="mt-2 text-center text-green-600 text-xs">
+        <div className="mt-1 text-center text-green-600 text-xs">
           <p>Integrated Solid Waste Management Center • Operations: 1st January 2025 - 31st December 2050 • Dashboard refreshes automatically • Data sourced from PostgreSQL Weight Bridge System {location && `• Location: ${location}`} • Developed by net1io.com</p>
         </div>
       </div>
