@@ -27,6 +27,12 @@ export function LiveStatus() {
 
   const weekOfYear = getWeekOfYear(now);
 
+  const dayOfWeek = now.toLocaleDateString('en-MY', {
+    timeZone: 'Asia/Kuala_Lumpur',
+    weekday: 'long',
+  });
+  const dayOfMonth = now.getDate();
+
   const dateString = now.toLocaleDateString('en-MY', {
     timeZone: 'Asia/Kuala_Lumpur',
     weekday: 'long',
@@ -51,7 +57,7 @@ export function LiveStatus() {
             <div>
               <p className="text-xs opacity-90">Current Time</p>
               <p className="text-sm font-semibold">{`${dateString}, ${timeString}`}</p>
-              <p className="text-xs opacity-90">{`Week ${weekOfYear}`}</p>
+              <p className="text-xs opacity-90">{`Week ${weekOfYear} • ${dayOfWeek}, ${dayOfMonth}`}</p>
             </div>
           </div>
         </CardContent>
