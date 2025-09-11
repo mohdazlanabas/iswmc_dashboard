@@ -12,7 +12,9 @@ const truckTypes = [
   { truckId: 1, truckType: 'Compactor' },
   { truckId: 2, truckType: 'Roll-off' },
   { truckId: 3, truckType: 'Tipper' },
-  { truckId: 4, truckType: 'Skip Loader' }
+  { truckId: 4, truckType: 'Skip Loader' },
+  { truckId: 5, truckType: 'Lifter' },
+  { truckId: 6, truckType: 'Dumper' }
 ];
 
 // Helper to generate 4 trucks' data with type

@@ -3,7 +3,7 @@ import { DashboardHeader } from "./components/dashboard-header";
 import { LorryStatsCard } from "./components/lorry-stats-card";
 
 // Types for backend data
-interface BackendLorryData {
+interface TruckData {
   truckId: number;
   truckType: string;
   tonnage: number;
@@ -11,7 +11,7 @@ interface BackendLorryData {
 }
 interface StatsResponse {
   period: string;
-  data: BackendLorryData[];
+  data: TruckData[];
 }
 
 export default function App() {
@@ -69,9 +69,9 @@ export default function App() {
   }
 
   // Helper functions to calculate totals
-  const getTotalTonnage = (data: BackendLorryData[]) =>
+  const getTotalTonnage = (data: TruckData[]) =>
     data.reduce((sum, t) => sum + t.tonnage, 0);
-  const getTotalLorries = (data: BackendLorryData[]) =>
+  const getTotalLorries = (data: TruckData[]) =>
     data.reduce((sum, t) => sum + t.trips, 0);
 
   const lorryTypes: { [key: string]: { capacity: number; color: string } } = {
@@ -79,9 +79,11 @@ export default function App() {
     Roro: { capacity: 5, color: '#10b981' },
     Tipper: { capacity: 1.5, color: '#34d399' },
     Compactor: { capacity: 9, color: '#6ee7b7' },
+    Lifter: { capacity: 2, color: '#f59e42' },
+    Dumper: { capacity: 8, color: '#f472b6' },
   };
 
-  const transformData = (data: BackendLorryData[]) => {
+  const transformData = (data: TruckData[]) => {
     return data.map(item => {
       const typeInfo = lorryTypes[item.truckType] || { capacity: 0, color: '#cccccc' };
       return {

@@ -10,7 +10,9 @@ export const lorryTypes: LorryType[] = [
   { type: 'Dump', capacity: 5, color: '#059669' },
   { type: 'Roro', capacity: 5, color: '#10b981' },
   { type: 'Tipper', capacity: 1.5, color: '#34d399' },
-  { type: 'Compactor', capacity: 9, color: '#6ee7b7' }
+  { type: 'Compactor', capacity: 9, color: '#6ee7b7' },
+  { type: 'Lifter', capacity: 2, color: '#f59e42' },
+  { type: 'Dumper', capacity: 8, color: '#f472b6' }
 ];
 
 export interface LorryData {
