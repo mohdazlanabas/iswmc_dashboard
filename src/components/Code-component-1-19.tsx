@@ -1,7 +1,8 @@
+import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
-interface TruckData {
+interface LorryData {
   type: string;
   count: number;
   tonnage: number;
@@ -9,15 +10,15 @@ interface TruckData {
   color: string;
 }
 
-interface TruckStatsCardProps {
+interface LorryStatsCardProps {
   title: string;
   period: string;
-  data: TruckData[];
+  data: LorryData[];
   totalTonnage: number;
-  totalTrucks: number;
+  totalLorries: number;
 }
 
-export function TruckStatsCard({ title, period, data, totalTonnage, totalTrucks }: TruckStatsCardProps) {
+export function LorryStatsCard({ title, period, data, totalTonnage, totalLorries }: LorryStatsCardProps) {
   return (
     <Card className="bg-green-50/50 border-green-200">
       <CardHeader className="bg-green-100 border-b border-green-200">
@@ -31,8 +32,8 @@ export function TruckStatsCard({ title, period, data, totalTonnage, totalTrucks 
           {/* Summary Stats */}
           <div className="space-y-3">
             <div className="bg-white rounded-lg p-3 border border-green-200">
-              <p className="text-sm text-green-600">Total Trucks</p>
-              <p className="text-2xl font-semibold text-green-800">{totalTrucks}</p>
+              <p className="text-sm text-green-600">Total Lorry</p>
+              <p className="text-2xl font-semibold text-green-800">{totalLorries}</p>
             </div>
             <div className="bg-white rounded-lg p-3 border border-green-200">
               <p className="text-sm text-green-600">Total Tonnage</p>
@@ -41,15 +42,15 @@ export function TruckStatsCard({ title, period, data, totalTonnage, totalTrucks 
             
             {/* Truck Type Breakdown */}
             <div className="space-y-2">
-              {data.map((truck) => (
-                <div key={truck.type} className="bg-white rounded p-2 border border-green-200">
+              {data.map((lorry) => (
+                <div key={lorry.type} className="bg-white rounded p-2 border border-green-200">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm font-medium text-green-800">{truck.type}</span>
-                    <span className="text-sm text-green-600">{truck.count} trucks</span>
+                    <span className="text-sm font-medium text-green-800">{lorry.type}</span>
+                    <span className="text-sm text-green-600">{lorry.count} lorries</span>
                   </div>
                   <div className="flex justify-between items-center text-xs text-green-600">
-                    <span>{truck.capacity} ton capacity</span>
-                    <span>{truck.tonnage.toFixed(1)} tons</span>
+                    <span>{lorry.capacity} ton capacity</span>
+                    <span>{lorry.tonnage.toFixed(1)} tons</span>
                   </div>
                 </div>
               ))}
