@@ -1,8 +1,26 @@
+import React from 'react';
 import { Card, CardContent } from "./ui/card";
 import { Clock } from "lucide-react";
 
+// Function to get the ISO week number
+function getWeekOfYear(date: Date): number {
+  const target = new Date(date.valueOf());
+  const dayNr = (date.getDay() + 6) % 7;
+  target.setDate(target.getDate() - dayNr + 3);
+  const firstThursday = target.valueOf();
+  target.setMonth(0, 1);
+  if (target.getDay() !== 4) {
+    target.setMonth(0, 1 + ((4 - target.getDay()) + 7) % 7);
+  }
+  return 1 + Math.ceil((firstThursday - target.valueOf()) / 604800000);
+}
+
 export function LiveStatus() {
-  const currentTime = new Date().toLocaleString('en-MY', {
+  const now = new Date();
+  const weekOfYear = getWeekOfYear(now);
+  const dayOfWeek = now.toLocaleDateString('en-MY', { weekday: 'long', timeZone: 'Asia/Kuala_Lumpur' });
+
+  const currentTime = now.toLocaleString('en-MY', {
     timeZone: 'Asia/Kuala_Lumpur',
     year: 'numeric',
     month: 'short',
@@ -21,6 +39,7 @@ export function LiveStatus() {
             <div>
               <p className="text-xs opacity-90">Current Time</p>
               <p className="text-sm font-semibold">{currentTime}</p>
+              <p className="text-xs opacity-90 font-semibold">{`${dayOfWeek}, Week ${weekOfYear}`}</p>
             </div>
           </div>
         </CardContent>

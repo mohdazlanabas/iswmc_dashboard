@@ -19,8 +19,37 @@ export default function App() {
   const [weeklyData, setWeeklyData] = useState(null as StatsResponse | null);
   const [monthlyData, setMonthlyData] = useState(null as StatsResponse | null);
   const [yearlyData, setYearlyData] = useState(null as StatsResponse | null);
+  const [location, setLocation] = useState<string | null>(null);
 
   useEffect(() => {
+    // Fetch location data
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
+            .then(res => res.json())
+            .then(data => {
+              if (data && data.address) {
+                const city = data.address.city || data.address.town || data.address.village;
+                const country = data.address.country;
+                setLocation(`${city}, ${country}`);
+              } else {
+                setLocation("Location not found");
+              }
+            })
+            .catch(() => {
+              setLocation("Could not fetch location");
+            });
+        },
+        () => {
+          setLocation("Location access denied");
+        }
+      );
+    } else {
+      setLocation("Geolocation not supported");
+    }
+
     fetch("https://iswmc-backend-532680260027.asia-southeast2.run.app/api/stats/daily")
       .then(res => res.json())
       .then(setDailyData);
@@ -105,7 +134,7 @@ export default function App() {
         </div>
         {/* Footer */}
         <div className="mt-2 text-center text-green-600 text-xs">
-          <p>Integrated Solid Waste Management Center • Operations: 1st January 2025 - 31st December 2050 • Dashboard refreshes automatically • Data sourced from PostgreSQL Weight Bridge System • Developed by net1io.com</p>
+          <p>Integrated Solid Waste Management Center • Operations: 1st January 2025 - 31st December 2050 • Dashboard refreshes automatically • Data sourced from PostgreSQL Weight Bridge System {location && `• Location: ${location}`} • Developed by net1io.com</p>
         </div>
       </div>
     </div>
