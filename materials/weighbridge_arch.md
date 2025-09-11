@@ -1,4 +1,4 @@
-# Weighbridge System Architecture — Both Options in One Diagram
+# Weighbridge System Architecture
 
 Below is a single diagram that **draws both architectures side‑by‑side** using Mermaid subgraphs, followed by separate diagrams for each option and a side‑by‑side comparison table.
 
