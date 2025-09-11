@@ -75,19 +75,19 @@ export default function App() {
     data.reduce((sum, t) => sum + t.trips, 0);
 
   const lorryTypes: { [key: string]: { capacity: number; color: string } } = {
-    Truck: { capacity: 5, color: '#059669' },
-    Roro: { capacity: 5, color: '#10b981' },
-    Tipper: { capacity: 1.5, color: '#34d399' },
-    Compactor: { capacity: 9, color: '#6ee7b7' },
-    Lifter: { capacity: 2, color: '#f59e42' },
-    Dumper: { capacity: 8, color: '#f472b6' },
+    'Compactor': { capacity: 9, color: '#6ee7b7' },
+    'Roll-off': { capacity: 5, color: '#10b981' },
+    'Tipper': { capacity: 1.5, color: '#34d399' },
+    'Skip Loader': { capacity: 5, color: '#059669' },
+    'Lifter': { capacity: 2, color: '#f59e42' },
+    'Dumper': { capacity: 8, color: '#f472b6' },
   };
 
   const transformData = (data: TruckData[]) => {
     return data.map(item => {
       const typeInfo = lorryTypes[item.truckType] || { capacity: 0, color: '#cccccc' };
       return {
-        type: item.truckType === 'Truck' ? 'Dump' : item.truckType,
+        type: item.truckType,
         count: item.trips,
         tonnage: item.tonnage,
         capacity: typeInfo.capacity,
