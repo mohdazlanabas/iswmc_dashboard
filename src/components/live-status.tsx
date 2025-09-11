@@ -20,14 +20,18 @@ export function LiveStatus() {
   const weekOfYear = getWeekOfYear(now);
   const dayOfWeek = now.toLocaleDateString('en-MY', { weekday: 'long', timeZone: 'Asia/Kuala_Lumpur' });
 
-  const currentTime = now.toLocaleString('en-MY', {
+  const timeString = now.toLocaleString('en-MY', {
+    timeZone: 'Asia/Kuala_Lumpur',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
+
+  const dateString = now.toLocaleDateString('en-MY', {
     timeZone: 'Asia/Kuala_Lumpur',
     year: 'numeric',
     month: 'short',
     day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit'
   });
 
   return (
@@ -38,8 +42,8 @@ export function LiveStatus() {
             <Clock className="h-4 w-4" />
             <div>
               <p className="text-xs opacity-90">Current Time</p>
-              <p className="text-sm font-semibold">{currentTime}</p>
-              <p className="text-xs opacity-90 font-semibold">{`${dayOfWeek}, Week ${weekOfYear}`}</p>
+              <p className="text-sm font-semibold">{`${dateString}, ${timeString}`}</p>
+              <p className="text-xs opacity-90">{`${dayOfWeek}, Week ${weekOfYear}`}</p>
             </div>
           </div>
         </CardContent>
