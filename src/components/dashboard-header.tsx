@@ -65,7 +65,7 @@ export function DashboardHeader() {
             <div>
               <p className="text-xs opacity-90">Current Time</p>
               <p className="text-xs font-semibold">{`${dateString}, ${timeString}`}</p>
-              <p className="text-xs opacity-90">{`Week ${weekOfYear} • ${dayOfWeek}, ${dayOfMonth}`}</p>
+              <p className="text-xs opacity-90">{`Week ${weekOfYear}`}</p>
             </div>
           </div>
         </div>
