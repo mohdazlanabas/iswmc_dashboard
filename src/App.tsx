@@ -74,6 +74,7 @@ export default function App() {
   const getTotalLorries = (data: TruckData[]) =>
     data.reduce((sum, t) => sum + t.trips, 0);
 
+  // Mapping for truck types (must match backend exactly)
   const lorryTypes: { [key: string]: { capacity: number; color: string } } = {
     'Compactor': { capacity: 9, color: '#6ee7b7' },
     'Roll-off': { capacity: 5, color: '#10b981' },
@@ -83,6 +84,7 @@ export default function App() {
     'Dumper': { capacity: 8, color: '#f472b6' },
   };
 
+  // Transform backend data for UI
   const transformData = (data: TruckData[]) => {
     return data.map(item => {
       const typeInfo = lorryTypes[item.truckType] || { capacity: 0, color: '#cccccc' };
