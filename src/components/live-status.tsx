@@ -27,12 +27,16 @@ export function LiveStatus() {
 
   const weekOfYear = getWeekOfYear(now);
 
-  const displayString = now.toLocaleString('en-MY', {
+  const dateString = now.toLocaleDateString('en-MY', {
     timeZone: 'Asia/Kuala_Lumpur',
     weekday: 'long',
     year: 'numeric',
     month: 'short',
     day: 'numeric',
+  });
+
+  const timeString = now.toLocaleTimeString('en-MY', {
+    timeZone: 'Asia/Kuala_Lumpur',
     hour: '2-digit',
     minute: '2-digit',
     second: '2-digit',
@@ -46,7 +50,7 @@ export function LiveStatus() {
             <Clock className="h-4 w-4" />
             <div>
               <p className="text-xs opacity-90">Current Time</p>
-              <p className="text-sm font-semibold">{displayString}</p>
+              <p className="text-sm font-semibold">{`${dateString}, ${timeString}`}</p>
               <p className="text-xs opacity-90">{`Week ${weekOfYear}`}</p>
             </div>
           </div>
